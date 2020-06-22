@@ -7,46 +7,48 @@ import javax.persistence.Convert;
 import javax.persistence.Embedded;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-@Entity(name="db_trainingcentre")
+@Entity(name="table_tc")
 public class TrainingCentre {
 	
-	@Size(max=40)
-	private String centreName;
-	public String getCentreName() {
-		return centreName;
+	@NotEmpty(message="NOT NULL")
+	@Size(max = 40)
+	private String centerName;
+	public String getCenterName() {
+		return centerName;
 	}
-	public void setCentreName(String centreName) {
-		this.centreName = centreName;
+	public void setCenterName(String centerName) {
+		this.centerName = centerName;
 	}
-	
-	
-	@Embedded
-	private Address address;
-	
+	@NotEmpty(message="NOT NULL")
+	@Size(min=12,max=12,message = "exactly 12 character alphanumeric")
 	@Id
-	@Size(message="exactly 12 character alphanumeric",min=12,max=12)
-	private String centreCode;
-	public String getCentreCode() {
-		return centreCode;
+	private String centerCode;
+	public String getCenterCode() {
+		return centerCode;
 	}
-	public void setCentreCode(String centreCode) {
-		this.centreCode = centreCode;
+	public void setCenterCode(String centerCode) {
+		this.centerCode = centerCode;
 	}
-	
-	
-	
-	private long studentCapacity;
-	public long getStudentCapacity() {
+	@Embedded 
+	private Address address;
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	private Long studentCapacity;
+	public Long getStudentCapacity() {
 		return studentCapacity;
 	}
-	public void setStudentCapacity(long studentCapacity) {
+	public void setStudentCapacity(Long studentCapacity) {
 		this.studentCapacity = studentCapacity;
 	}
-	
-	@Convert(converter=stringToListConverter.class)
-	private List<String>coursesOffered;
+	@Convert(converter = StringToListConverter.class)
+	private List<String> coursesOffered;
 	public List<String> getCoursesOffered() {
 		return coursesOffered;
 	}
@@ -61,9 +63,6 @@ public class TrainingCentre {
 	public void setCreatedOn(String createdOn) {
 		this.createdOn = createdOn;
 	}
-	
-	
-	
 	@Email
 	private String contactEmail;
 	public String getContactEmail() {
@@ -72,9 +71,8 @@ public class TrainingCentre {
 	public void setContactEmail(String contactEmail) {
 		this.contactEmail = contactEmail;
 	}
-	
-	
-	@Size(max=10,min=10)
+	@NotEmpty(message="NOT NULL")
+	@Size(min=10,max=10)
 	private String contactPhone;
 	public String getContactPhone() {
 		return contactPhone;

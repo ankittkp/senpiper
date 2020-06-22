@@ -7,7 +7,7 @@ import javax.persistence.Converter;
 
 
 @Converter
-public class stringToListConverter implements 
+public class StringToListConverter implements 
 AttributeConverter<List<String>,String> {
 	
 	

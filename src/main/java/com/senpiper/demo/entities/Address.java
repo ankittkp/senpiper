@@ -1,8 +1,8 @@
 package com.senpiper.demo.entities;
-
+import javax.persistence.Embeddable;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.Embeddable;
+
 
 
 @Access(value=AccessType.PROPERTY)
