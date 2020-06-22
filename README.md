@@ -13,7 +13,7 @@ Similarly for adding into db the address of this api is "http://localhost:8080/s
 
 # sample json file for the post request
 
-'''
+```
 {
 	"centerName":"NIT Hamirpur",
 	"centerCode":"zserdxcftg",
@@ -29,6 +29,5 @@ Similarly for adding into db the address of this api is "http://localhost:8080/s
 	"contactEmail":"abc@xyz.com",
 	"contactPhone":"1234567890"
 }
-'''
-
+```
 
